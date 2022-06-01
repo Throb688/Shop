@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<title>登录界面</title>
+		<link href="/stylesheets/index1/default.css" rel="stylesheet" type="text/css" />
+		<!--必要样式-->
+		<link href="/stylesheets/index1/styles.css" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/index1/demo.css" rel="stylesheet" type="text/css" />
+		<link href="/stylesheets/index1/loaders.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<form method="POST" action="/manage">
+		<div class='login'>
+			<div class='login_title'>
+				<span>管理员登录</span>
+			</div>
+			<div class='login_fields'>
+				<div class='login_fields__user'>
+					<div class='icon'>
+						<img alt="" src='/images/img/user_icon_copy.png'>
+					</div>
+					<input name="login" placeholder='用户名' maxlength="16" type='text' autocomplete="off" value="kbcxy" />
+					<div class='validation'>
+						<img alt="" src='/images/img/tick.png'>
+					</div>
+				</div>
+				<div class='login_fields__password'>
+					<div class='icon'>
+						<img alt="" src='/images/img/lock_icon_copy.png'>
+					</div>
+					<input name="pwd" placeholder='密码' maxlength="16" type='text' autocomplete="off">
+					<div class='validation'>
+						<img alt="" src='/images/img/tick.png'>
+					</div>
+				</div>
+				<div class='login_fields__password'>
+					<div class='icon'>
+						<img alt="" src='/images/img/key.png'>
+					</div>
+					<input name="code" placeholder='验证码' maxlength="4" type='text' name="ValidateNum" autocomplete="off">
+					<div class='validation' style="opacity: 1; right: -5px;top: -3px;">
+						<canvas class="J_codeimg" id="myCanvas" onclick="Code();">对不起，您的浏览器不支持canvas，请下载最新版浏览器!</canvas>
+					</div>
+				</div>
+				<div class='login_fields__submit'>
+					<input type='submit' value='登录'>
+				</div>
+			</div>
+			<div class='success'>
+			</div>
+			<div class='disclaimer'>
+				<p>欢迎登陆后台管理系统</p>
+			</div>
+		</div>
+		<div class='authent'>
+			<div class="loader" style="height: 44px;width: 44px;margin-left: 28px;">
+				<div class="loader-inner ball-clip-rotate-multiple">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+			<p>认证中...</p>
+		</div>
+		<div class="OverWindows"></div>
+	</form>
+		
+		<link href="/javascripts/layui/css/layui.css" rel="stylesheet" type="text/css" />
+		
+		<script type="text/javascript" src="/javascripts/js1/jquery.min.js"></script>
+		<script type="text/javascript" src="/javascripts/js1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src='/javascripts/js1/stopExecutionOnTimeout.js?t=1'></script>
+		<script type="text/javascript" src="/javascripts/layui/layui.js"></script>
+		<script type="text/javascript" src="/javascripts/js1/Particleground.js"></script>
+		<script type="text/javascript" src="/javascripts/js1/Treatment.js"></script>
+		<script type="text/javascript" src="/javascripts/js1/jquery.mockjax.js"></script>
+		<script type="text/javascript" src="/javascripts/js1/demo2.js"></script>
+		<script type="text/javascript" src="/images/img/ThreeWebGL.js"></script>
+		<script type="text/javascript" src="/images/img/ThreeExtras.js"></script>
+		<script type="text/javascript" src="/images/img/Detector.js"></script>
+		<script type="text/javascript" src="/images/img/RequestAnimationFrame.js"></script>
+		<script id="vs" type="x-shader/x-vertex">
+			varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 ); }
+		</script>
+		<script id="fs" type="x-shader/x-fragment">
+			uniform sampler2D map; uniform vec3 fogColor; uniform float fogNear; uniform float fogFar; varying vec2 vUv; void main() { float depth = gl_FragCoord.z / gl_FragCoord.w; float fogFactor = smoothstep( fogNear, fogFar, depth ); gl_FragColor = texture2D( map, vUv ); gl_FragColor.w *= pow( gl_FragCoord.z, 20.0 ); gl_FragColor = mix( gl_FragColor, vec4( fogColor, gl_FragColor.w ), fogFactor ); }
+
+		</script>
+		<script type="text/javascript" src="/javascripts/js1/demo1.js"></script>
+	<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+</body>
+
+</html>

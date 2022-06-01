@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+			<link rel="stylesheet" href="/stylesheets/css1/amazeui.min.css">
+		<link rel="stylesheet" href="/stylesheets/css1/admin.css">
+		<link rel="stylesheet" href="/stylesheets/css1/app.css">
+        <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+		<script src="/javascripts/js2/jquery-1.11.3.min.js"></script>	
+		<style>
+			.admin-main{
+				padding-top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="am-cf admin-main">
+			<!-- content start -->
+			<div class="admin-content">
+				<div class="admin-content-body">
+					<div class="am-g">
+                        <% info.forEach(i=>{%>
+						<form class="am-form am-form-horizontal" style="padding-top: 30px;">
+							<input value="504" name="roleId" type="hidden">
+							<div class="am-form-group">
+								<label for="user-name" class="am-u-sm-3 am-form-label">
+									用户名称
+								</label>
+								<div class="am-u-sm-9">
+									<input  rows="" cols="50"  value="<%= i.user_name%>" type="text" disabled />
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-name" class="am-u-sm-3 am-form-label">
+									用户邮箱
+								</label>
+								<div class="am-u-sm-9">
+									<input rows="" cols="50" value="<%= i.email%>" disabled></input>
+								</div>
+							</div>
+							<div class="am-form-group">
+								<label for="user-name" class="am-u-sm-3 am-form-label">
+									用户注册时间
+								</label>
+								<div class="am-u-sm-9">
+									<input rows="" value="<%= i.create_time%>"  cols="50"  disabled></input>
+								</div>
+							</div>
+
+							<div class="am-form-group">
+								<div class="am-u-sm-9 am-u-sm-push-3">
+                                    <button type="button" onclick="chack()" class="btn btn-info">返回商品主页</button>
+									<button type="button" onclick="check()" class="btn btn-warning">修改密码</button>
+								</div>
+							</div>
+						</form>
+                        <%})%>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</body>
+	<script type="text/javascript" src="/javascripts/js2/test.js"></script>
+	<script>
+		function check(){
+            window.location.href='/myself/upa'
+        }
+
+			function chack(){
+				window.location.href = '/shop'
+			}
+	</script>
+</html>

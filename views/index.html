@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>高性能滑动的登录注册页面静态模板 - </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/dmaku.css">
+    <script src="/javascripts/jquery-3.5.1.js"></script>
+</head>
+<body>
+    <div class="dowebok" id="dowebok">
+        <div class="form-container sign-up-container">
+            <form action="/" method="POST">
+                <h1>注册</h1>
+                <span>注册</span>
+                <div id="err" style="display: none;">
+                    <h style="color: tomato;">两次密码输入的不一样</h></div>
+                <input type="text" name="name" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"placeholder="姓名(请输入中文)">
+                <input type="password" name="paw1" id="paw" pattern="^[0-9a-zA-z_]{6,}$"  placeholder="密码(长度要大于6位，由数字和字母组成)">
+                <input type="password" name="paw2"  id="paw1"  placeholder="再次输入密码">
+                <input type="email" id="e_mail" name="e_mail"  placeholder="请输入邮箱">
+                <input type="button" id="e_mail1" value="获取验证码"></input>
+                <input type="text"  name="code1" placeholder="请输入你的验证码">
+                <button type="button" id="butn" onclick="check()">注册</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/user" method="POST">
+                <h1>登录</h1>
+                <span>使用您的帐号</span>
+                <input type="text" name="name1" placeholder="名字">
+                <input type="password" name="paw" placeholder="密码">
+                <button type="submit">登录</button>
+                <a href="/manage">管理员登录</a>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>已有帐号？</h1>
+                    <p>请使用您的帐号进行登录</p>
+                    <button class="ghost" id="signIn">登录</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>没有帐号？</h1>
+                    <p>立即注册加入我们，和我们一起开始旅程吧</p>
+                    <button class="ghost" id="signUp">注册</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="/javascripts/dmaku.js"></script>
+<style>
+.copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+</body>
+
+</html>

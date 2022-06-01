@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Bootstrap淘宝购物车结算代码 - 站长素材</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/gou/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="/stylesheets/gou/css/style.css" />
+
+
+<body>
+<div class="shopping-car-container">
+	<div class="car-headers-menu">
+		<div class="row">
+			<div style="left: -65px" class="col-md-3 car-menu">商品信息</div>
+			<div style="left: 149px;" class="col-md-1 car-menu">金额</div>
+			<div style="left: 370px;" class="col-md-2 car-menu">操作</div>
+			<div style="left: 432px;" class="col-md-2 car-menu"><a href="/shop">返回商品主页</a></div>
+		</div>
+	</div>
+	<div class="goods-content">
+		<% shop.forEach(i =>{%>
+		<div class="goods-item">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-3 car-goods-info goods-image-column">
+						<img class="goods-image" src="<%= i.shop_image%> " style="width: 100px; height: 100px;" /> 
+						<span id="goods-info">
+							<%= i.tb_name%>
+							</span>
+						</div>
+					<div style="left: 145px;" class="col-md-1 car-goods-info goods-price"><span>￥</span><span class="single-price"> <%= i.tb_price%> </span></div>
+					<div class="col-md-2 car-goods-info goods-operate" style="left: 370px;">
+						<input type="button" class="btn btn-danger comment item-delete" value=">>>去评论" data-id1="<%= i.tb_id%>">
+						</div>
+					</div>
+				</div>
+			</div>
+			<%})%>
+	</div>
+<script type="text/javascript" src="/javascripts/gou/js/jquery.min.js"></script>
+<script>
+	$(function(){
+		$(document).on('click','.comment',function(){
+        let ind = $(this).attr('data-id1')
+        window.location.href='/myself/comment/'+ind
+})
+	})
+</script>
+<!-- <script type="text/javascript" src="/javascripts/gou/js/script.js"></script> -->
+<div style="text-align:center;margin:-50px 0; font:normal 14px/24px MicroSoft YaHei;">
+</div>
+</body>
+</html>

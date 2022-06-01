@@ -1,0 +1,212 @@
+<%-include('head.html') -%>
+		
+<!-- //navigation -->
+	<!-- main-slider -->
+		<ul id="demo1">
+			<li>
+				<img src="/images/images/11.jpg" alt="" />
+				<!--Slider Description example-->
+				<div class="slide-desc">
+					<h3>购买大米产品现在与我们保持一致</h3>
+				</div>
+			</li>
+			<li>
+				<img src="/images/images/22.jpg" alt="" />
+				  <div class="slide-desc">
+					<h3>整个香料产品现在都可以和我们一起使用</h3>
+				</div>
+			</li>
+			
+			<li>
+				<img src="/images/images/44.jpg" alt="" />
+				<div class="slide-desc">
+					<h3>整个香料产品现在都可以和我们一起使用</h3>
+				</div>
+			</li>
+		</ul>
+	<!-- //main-slider -->
+	<!-- //top-header and slider -->
+	<!-- top-brands -->
+	<div class="tlinks">从收集<a href="http://www.cssmoban.com/"  title="缃戠珯妯℃澘">Xiang 戠 珯 Zhou ℃ 澘</a></div>
+	<div class="top-brands">
+		<div class="container">
+		<h2>热卖商品</h2>
+			<div class="grid_3 grid_5">
+				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+					<ul id="myTab" class="nav nav-tabs" role="tablist">
+						<li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">广告优惠</a></li>
+						<li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">今日优惠</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+							<div class="agile-tp">
+								<h5>本周刊登广告</h5>
+								<p class="w3l-ad">我们一起把我们所有的广告提供了在一个地方,这样你就不会错过一个伟大的交易。</p>
+
+							<div class="agile_top_brands_grids">
+								<% shop.forEach(shop =>{%>
+								<div class="col-md-4 top_brand_left">
+									<div class="hover14 column">
+										<div class="agile_top_brand_left_grid">
+											<div class="agile_top_brand_left_grid_pos">
+												<img src="/images/images/offer.png" alt=" " class="img-responsive" />
+											</div>
+											<div class="agile_top_brand_left_grid1">
+												<figure>
+													<div class="snipcart-item block" >
+														<div class="snipcart-thumb">
+															<a href="/shop/single/<%= shop.id %>"><img  style="height:150px;width: 150px;" title=" " alt=" " src='<%= shop.image%>' /></a>		
+															<p><%= shop.name%></p>
+															<div class="stars">
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																<i class="fa fa-star gray-star" aria-hidden="true"></i>
+															</div>
+															<h4>$ <%= shop.price%><span>$ <%= shop.ori_price%></span></h4>
+														</div>
+														<div class="snipcart-details top_brand_home_details">
+															<!-- <form action="/shop/sub" method="post"> -->
+																<fieldset>
+																	<input type="hidden" name="cmd" value="_cart" />
+																	<input type="hidden" name="add" value="1" />
+																	<input type="hidden" name="business" value=" " />
+																	<input type="hidden" name="item_name" value="<%= shop.name%>" />
+																	<input type="hidden" name="amount" value="<%= shop.price%>" />
+																	<input type="hidden" name="discount_amount" value="" />
+																	<input type="hidden" name="currency_code" value="USD" />
+																	<input type="hidden" name="return" value=" " />
+																	<input type="hidden" name="cancel_return" value=" " />
+																	<input type="submit"  name="submit11" value="Add to cart" class="button  sub" data-id="<%= shop.id%>" />
+																</fieldset>
+															</form>
+														</div>
+													</div>
+												</figure>
+											</div>
+										</div>
+									</div>
+								</div>
+								<%})%>
+								<div class="clearfix"> </div>
+							</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+							<div class="agile-tp">
+								<h5>本星期</h5>
+								<p class="w3l-ad">我们一起把我们所有的广告提供了在一个地方,这样你就不会错过一个伟大的交易。</p>
+							</div>
+							<div class="agile_top_brands_grids">
+								<% shope.forEach(shop =>{%>
+									<div class="col-md-4 top_brand_left">
+										<div class="hover14 column">
+											<div class="agile_top_brand_left_grid">
+												<div class="agile_top_brand_left_grid_pos">
+													<img src="/images/images/offer.png" alt=" " class="img-responsive" />
+												</div>
+												<div class="agile_top_brand_left_grid1">
+													<figure>
+														<div class="snipcart-item block" >
+															<div class="snipcart-thumb">
+																<a href="/shop/single/<%= shop.id %>"><img  style="height:150px;width: 150px;" title=" " alt=" " src='<%= shop.image%>' /></a>		
+																<p><%= shop.name%></p>
+																<div class="stars">
+																	<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																	<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																	<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																	<i class="fa fa-star blue-star" aria-hidden="true"></i>
+																	<i class="fa fa-star gray-star" aria-hidden="true"></i>
+																</div>
+																<h4>$ <%= shop.price%><span>$ <%= shop.ori_price%></span></h4>
+															</div>
+															<div class="snipcart-details top_brand_home_details">
+																<!-- <form action="#" method="post"> -->
+																	<fieldset>
+																		<input type="hidden" name="cmd" value="_cart" />
+																		<input type="hidden" name="add" value="1" />
+																		<input type="hidden" name="business" value=" " />
+																		<input type="hidden" name="item_name" value="<%= shop.name%>" />
+																		<input type="hidden" name="amount" value="<%= shop.price%>" />
+																		<input type="hidden" name="discount_amount" value="" />
+																		<input type="hidden" name="currency_code" value="USD" />
+																		<input type="hidden" name="return" value=" " />
+																		<input type="hidden" name="cancel_return" value=" " />
+																		<input type="submit"  name="submit11" value="Add to cart" class="button  sub" data-id="<%= shop.id%>" />
+																	</fieldset>
+																</form>
+															</div>
+														</div>
+													</figure>
+												</div>
+											</div>
+										</div>
+									</div>
+									<%})%>
+									<div class="clearfix"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="newproducts-w3agile">
+		<div class="container">
+			<h3>新优惠</h3>
+				<div class="agile_top_brands_grids">
+					<% shope1.forEach(i =>{%>
+						<div class="col-md-3 top_brand_left-1">
+							<div class="hover14 column">
+								<div class="agile_top_brand_left_grid">
+									<div class="agile_top_brand_left_grid_pos">
+										<img src="/images/images/offer.png" alt=" " class="img-responsive">
+									</div>
+									<div class="agile_top_brand_left_grid1">
+										<figure>
+											<div class="snipcart-item block">
+												<div class="snipcart-thumb">
+													<a href="/shop/single/<%= i.id %>"><img title=" " style="height:150px;width: 150px;" alt=" " src="<%= i.image%>"></a>		
+													<p><%= i.name%></p>
+													<div class="stars">
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star blue-star" aria-hidden="true"></i>
+														<i class="fa fa-star gray-star" aria-hidden="true"></i>
+													</div>
+														<h4>$ <%= i.price%><span>$ <%= shop.ori_price%></span></h4>
+												</div>
+												<div class="snipcart-details top_brand_home_details">
+													<!-- <form action="#" method="post"> -->
+														<fieldset>
+															<input type="hidden" name="cmd" value="_cart">
+															<input type="hidden" name="add" value="1">
+															<input type="hidden" name="business" value=" ">
+															<input type="hidden" name="item_name" value="<%= shop.name%>">
+															<input type="hidden" name="amount" value="<%= shop.price%>">
+															<input type="hidden" name="discount_amount" value="">
+															<input type="hidden" name="currency_code" value="USD">
+															<input type="hidden" name="return" value=" ">
+															<input type="hidden" name="cancel_return" value=" ">
+															<input type="submit"  name="submit11" value="Add to cart" class="button  sub" data-id="<%= shop.id%>" />
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</figure>
+									</div>
+								</div>
+							</div>
+						</div>
+						<%})%>
+					</div>
+						<div class="clearfix"> </div>
+				</div>
+		</div>
+	</div>
+<!-- //new -->
+<!-- //footer -->
+<%-include('footer.html') -%>

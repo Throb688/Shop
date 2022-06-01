@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/stylesheets/css1/amazeui.min.css">
+		<link rel="stylesheet" href="/stylesheets/css1/admin.css">
+		<link rel="stylesheet" href="/stylesheets/css1/app.css">
+	</head>
+
+	<body>
+		<div class="am-cf admin-main" style="padding-top: 0px;">
+			<!-- content start -->
+			<div class="admin-content"> 
+				<div class="admin-content-body">
+					
+					<div class="container">
+						<div class="am-g">
+							<div class="am-u-sm-12 am-u-md-6">
+								<div class="am-btn-toolbar">
+									<div class="am-btn-group am-btn-group-xs">
+										<button type="button" class="am-btn am-btn-default btnAdd" id="btnAdd1">
+											<span class="icon-plus"></span> 新增
+										</button>
+										<button type="button" class="am-btn am-btn-default btnAdd" onclick='chexk()' >
+											<span class="icon-plus"></span> 刷新
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="am-u-sm-12 am-u-md-3">
+								<div class="am-input-group am-input-group-sm">
+									<input class="am-form-field" id="departName" placeholder="请输入要查找的产品名称" type="text">
+									<span class="am-input-group-btn">
+										<button class="am-btn am-btn-default find" type="button" id="btnsearch">
+											搜索
+										</button> </span>
+								</div>
+							</div>
+						</div>
+
+						<div class="am-g" style="margin-top: -30px;">
+							<div class="am-u-sm-12">
+								<form class="am-form">
+									<table class="am-table am-table-striped am-table-hover table-main">
+										<thead>
+											<tr>
+												<th class="table-check">
+													<input id="chkAll" type="checkbox">
+												</th>
+												<th class="table-title">
+													产品名字
+												</th>
+												<th class="table-title">
+													产品图片位置
+												</th>
+												<th class="table-title">
+													产品原价格
+												</th>
+												<th class="table-title">
+													产品价格
+												</th>
+												<th class="table-title">
+													产品类型
+												</th>
+												<th class="table-set">
+													操作
+												</th>
+											</tr>
+										</thead>
+										<tbody id="tUser">
+											<% shope.forEach(i =>{%>
+											<tr id="tr">
+												<td><input name="chks" value="27" type="checkbox"></td>
+												<td><%= i.name%></td>
+												<td><img style="width: 100px; height: 100px;" src="<%= i.image%>"> </td>
+												<td><%= i.ori_price%></td>
+												<td><%= i.price%></td>
+												<td><%= i.type%></td>
+												<td>
+													<div class="am-btn-toolbar">
+														<div class="am-btn-group am-btn-group-xs">
+															<button type="button" id="depart_27" class="am-btn am-btn-default am-btn-xs am-text-secondary btnedit  update" data-id1=<%= i.id%> >
+																<span class="am-icon-pencil-square-o"></span>修改</button>
+															<button type="button"  class="am-btn am-btn-default am-btn-xs am-text-danger amt-hide-sm-only  del" data-id =<%= i.id%> >
+																<span class="am-icon-trash-o"></span> 删除</button></div>
+													</div>
+												</td>
+											</tr>
+												<%})%>
+										</tbody>	
+									</table>
+								</form>
+								<tfoot id="hidden">
+									<span id='prev'>上一页</span>
+									<span id='pages'></span>
+									<span id='next'>下一页</span>
+									<input id="count" type="hidden" value="<%= count%>">
+									<input id="page" type="hidden" value="<%= page%>">
+								</tfoot>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- content end -->
+			</div>
+		</div>
+
+		<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+ 
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+		<script src="/javascripts/js2/jquery-1.11.3.min.js"></script>
+		<!--<![endif]-->
+		<script type="text/javascript" src="/javascripts/js2/plugs.js"></script>
+
+		<script type="text/javascript" src="/javascripts/js2/test.js"></script>
+		<script>
+			function chexk(){
+				location.reload()
+			}
+		</script>
+
+
+		<script>
+			$(function() {
+
+			document.getElementById('btnAdd1').onclick =()=>{
+				window.location.href= "/manage/addDepart"
+			}
+			});
+			
+
+		
+		</script>
+
+
+<script>
+	var count=document.getElementById('count').value ;// 总条数
+	var page=document.getElementById('page').value ; // 当前的页码
+	console.log(count);
+	console.log(page);
+	
+	var pages=document.getElementById('pages');
+	var prev=document.getElementById('prev');
+	var next=document.getElementById('next');
+	
+	//
+	function createPages() {
+		pages.innerHTML='';
+		for(var i=0;i<Math.ceil(count/5);i++){
+			pages.innerHTML+=`<button class="btn" json-page="${i}">${i+1}</button>`;
+		}
+	}
+	createPages()
+	
+	// 点击按钮翻页
+	$(function(){
+	
+		// 获取页面的位置
+	
+	
+	$('.btn').on('click',function(){
+		let page=$(this).attr('json-page');
+		window.location.href='/manage/depart/?page='+page;
+	})
+	
+	// 点击上一页
+	prev.onclick=function(){
+		if(page>=1){
+			page--;
+			window.location.href='/manage/depart/?page='+page;
+		}
+	}
+	
+	// 点击下一页
+	next.onclick=function(){
+		if(page<Math.ceil(count/5)-1){
+			page++;
+			window.location.href='/manage/depart/?page='+page;
+		} 
+	}
+	})
+	</script>
+	</body>
+</html>

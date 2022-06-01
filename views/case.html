@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <title>网络公司-案例</title>
+  <link rel="stylesheet" href="/stylesheets/case/layui/css/layui.css">
+  <link rel="stylesheet" href="/javascripts/case/static/css/index.css">
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <script src="/javascripts/bootstrap.js" ></script>
+  <!-- <script src="/javascripts/masonry.js"></script> -->
+</head>
+<body>
+  <!-- nav部分 -->
+  <div class="nav">
+    <div class="layui-container">
+      <!-- 公司logo -->
+      <div class="nav-logo">
+        <a href="index.html">
+          <p>Hello ,<%= userName%>,欢迎进入个人详情页面</p>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- banner部分 -->
+  <div class="banner case">
+    <div class="title">
+      <p>个人主页</p>
+      <p class="en">Personal Homepage</p>
+    </div>
+  </div>
+  <!-- main部分 -->
+  <div class="row">
+    <div class="col-xs-6 col-md-3">
+      <a href="/gou" class="thumbnail">
+    <img style="width: 270px; height: 275px;" src="/images/img1/gou.png" alt="...">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="/myself/info" class="thumbnail">
+    <img style="width: 270px; height: 275px;" src="/images/img1/smy.jfif" alt="...">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="/myself/a" class="thumbnail">
+    <img style="width: 270px; height: 275px;" src="/images/img1/订.jfif" alt="...">
+      </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+      <a href="/myself/upa" class="thumbnail">
+    <img style="width: 270px; height: 275px;" src="/images/img1/she.jpg" alt="...">
+      </a>
+    </div>
+  </div>
+
+  <!-- footer部分 -->
+  <div class="footer">
+    <div class="layui-container">
+      <p class="footer-web">
+        <a href="javascript:;">合作伙伴</a>
+        <a href="javascript:;">企业画报</a>
+        <a href="javascript:;">JS网</a>
+        <a href="javascript:;">千图网</a>
+        <a href="javascript:;">昵图网</a>
+        <a href="javascript:;">素材网</a>
+        <a href="javascript:;">花瓣网</a>
+      </p>
+      <div class="layui-row footer-contact">
+        <div class="layui-col-sm2 layui-col-lg1"><img src="../res/static/img/erweima.jpg"></div>
+        <div class="layui-col-sm10 layui-col-lg11">
+          <div class="layui-row">
+            <div class="layui-col-sm6 layui-col-md8 layui-col-lg9">
+              <p class="contact-top"><i class="layui-icon layui-icon-cellphone"></i>&nbsp;XXX&nbsp;&nbsp;&nbsp;(9:00-18:00)</p>
+              <p class="contact-bottom"><i class="layui-icon layui-icon-home"></i>&nbsp;XXX</span></p>
+            </div>
+            <div class="layui-col-sm6 layui-col-md4 layui-col-lg3">
+
+              <p class="contact-bottom"><span class="right">Copyright&nbsp;©&nbsp;2016-2018&nbsp;&nbsp;ICP&nbsp;</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="/stylesheets/case/layui/layui.js"></script>
+<!--[if lt IE 9]>
+  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+  layui.config({
+    base: '../public/javascripts/case/static/js/firm.js' 
+  }).use('firm'); 
+</script>
+</body>
+</html>

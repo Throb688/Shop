@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Bootstrap淘宝购物车结算代码 - 站长素材</title>
+</head>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/gou/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="/stylesheets/gou/css/style.css" />
+
+<body>
+<div class="shopping-car-container">
+	<div class="car-headers-menu">
+		<div class="row">
+			<div class="col-md-1 car-menu">
+				<label><input type="checkbox" id="check-goods-all" /><span id="checkAll">全选</span></label>
+			</div>
+			<div class="col-md-3 car-menu">商品信息</div>
+			<div class="col-md-3 car-menu">商品参数</div>
+			<div class="col-md-1 car-menu">单价</div>
+			<div class="col-md-1 car-menu">数量</div>
+			<div class="col-md-1 car-menu">金额</div>
+			<div class="col-md-2 car-menu">操作</div>
+		</div>
+	</div>
+	<div class="goods-content">
+		<% shop.forEach(i =>{%>
+		<div class="goods-item">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-1 car-goods-info"> 
+						<label><input type="checkbox" class="goods-list-item" /></label> 
+						</div> 
+					<div class="col-md-3 car-goods-info goods-image-column">
+						<img class="goods-image" src="<%= i.tb_image%> " style="width: 100px; height: 100px;" /> 
+						<span id="goods-info">
+							<%= i.tb_name%>
+							</span>
+						</div>
+					<div class="col-md-3 car-goods-info goods-params"> </div>
+					<div class="col-md-1 car-goods-info goods-price"><span>￥</span><span class="single-price"> <%= i.tb_price%> </span></div>
+					<div class="col-md-1 car-goods-info goods-counts">
+						<div class="input-group"> 
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default car-decrease">-</button>
+								</div>
+							<input type="text" id="goodCount" class="form-control goods-count" value=" 1 ">
+							<div class="input-group-btn">
+								<button type="button" class="btn btn-default car-add">+</button>
+								</div>
+							</div>
+						</div>
+					<div class="col-md-1 car-goods-info goods-money-count"><span>￥</span><span class="single-total"> <%= i.tb_price%> </span></div>
+					<div class="col-md-2 car-goods-info goods-operate">
+						<button type="button" class="btn btn-danger item-delete" data-id="<%= i.tb_id%>">删除</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%})%>
+	</div>
+
+<input type="text" class="count">
+<script type="text/javascript" src="/javascripts/gou/js/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/gou/js/script.js"></script>
+<div style="text-align:center;margin:-50px 0; font:normal 14px/24px MicroSoft YaHei;">
+<script>
+  
+</script>
+</div>
+</body>
+</html>
